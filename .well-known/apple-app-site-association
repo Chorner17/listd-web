@@ -1,0 +1,17 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appID": "6ZN9KTCU5D.ca.prairienomad.listd",
+        "paths": [
+          "/listing/*",
+          "/confirm",
+          "/reset-password",
+          "/payment-success",
+          "/payment-cancelled"
+        ]
+      }
+    ]
+  }
+}
