@@ -79,17 +79,19 @@
   const id = parts.length > 1 ? parts[1].replace(/\/$/, '') : '';
   
   if (id) {
-    document.getElementById('openBtn').href = '#';
-    document.getElementById('openBtn').onclick = function(e) {
-      e.preventDefault();
-      // Navigate the page away so Safari doesn't regain focus
-      window.location.replace('https://listd.prairienomad.ca');
-      // Small delay then open app
-      setTimeout(function() {
-        window.location.href = 'ca.prairienomad.listd://listing/' + id;
-      }, 100);
-    };
-  }
+  document.getElementById('openBtn').href = '#';
+  document.getElementById('openBtn').onclick = function(e) {
+    e.preventDefault();
+    
+    // Try to open the app
+    window.location.href = 'ca.prairienomad.listd://listing/' + id;
+    
+    // If app doesn't open within 2 seconds, redirect to App Store
+    setTimeout(function() {
+      window.location.href = 'https://apps.apple.com/ca/app/listd/id6766142019';
+    }, 2000);
+  };
+}
 </script>
 </body>
 </html>
