@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Payment Successful — Listd</title>
+  <meta http-equiv="refresh" content="0;url=ca.prairienomad.listd://payment-success">
+  <style>
+    body {
+      font-family: -apple-system, sans-serif;
+      background: #F6F8F9;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+    }
+    .card {
+      text-align: center;
+      padding: 40px;
+    }
+    h1 { color: #1E6B8C; font-size: 24px; }
+    p { color: #666; margin: 12px 0 24px; }
+    a {
+      background: #1E6B8C;
+      color: white;
+      padding: 14px 28px;
+      border-radius: 12px;
+      text-decoration: none;
+      font-weight: 600;
+    }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>🎉 Payment Successful!</h1>
+    <p>Your listing is being published. Returning to Listd...</p>
+    <a href="ca.prairienomad.listd://payment-success">Open Listd</a>
+  </div>
+  <script>
+    window.location.href = 'ca.prairienomad.listd://payment-success';
+  </script>
+</body>
+</html>
