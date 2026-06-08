@@ -74,12 +74,22 @@
     <p class="hint">Don't have Listd? Download it on the App Store.</p>
   </div>
   <script>
-    const path = window.location.pathname;
-    const parts = path.split('/listing/');
-    const id = parts.length > 1 ? parts[1].replace(/\/$/, '') : '';
-    if (id) {
-      document.getElementById('openBtn').href = 'ca.prairienomad.listd://listing/' + id;
-    }
-  </script>
+  const path = window.location.pathname;
+  const parts = path.split('/listing/');
+  const id = parts.length > 1 ? parts[1].replace(/\/$/, '') : '';
+  
+  if (id) {
+    document.getElementById('openBtn').href = '#';
+    document.getElementById('openBtn').onclick = function(e) {
+      e.preventDefault();
+      // Navigate the page away so Safari doesn't regain focus
+      window.location.replace('https://listd.prairienomad.ca');
+      // Small delay then open app
+      setTimeout(function() {
+        window.location.href = 'ca.prairienomad.listd://listing/' + id;
+      }, 100);
+    };
+  }
+</script>
 </body>
 </html>
