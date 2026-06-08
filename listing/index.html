@@ -2,7 +2,7 @@
 <html>
 <head>
   <meta charset="UTF-8">
-  <title>Listd</title>
+  <title>Listd — View Property</title>
   <style>
     body {
       font-family: -apple-system, sans-serif;
@@ -14,35 +14,33 @@
       margin: 0;
     }
     .card { text-align: center; padding: 40px; }
-    h1 { color: #1E6B8C; font-size: 24px; }
-    p { color: #666; margin: 12px 0 24px; }
+    .logo { font-size: 32px; font-weight: 800; color: #1E6B8C; }
+    .logo span { font-weight: 300; color: #6B9E6B; }
+    h2 { color: #333; font-size: 18px; margin: 16px 0 8px; }
+    p { color: #666; margin: 0 0 28px; font-size: 14px; }
     a {
       background: #1E6B8C;
       color: white;
-      padding: 14px 28px;
+      padding: 16px 36px;
       border-radius: 12px;
       text-decoration: none;
       font-weight: 600;
+      font-size: 16px;
+      display: inline-block;
     }
   </style>
-  <script>
-    // Extract listing ID from URL path
-    const path = window.location.pathname;
-    const id = path.split('/listing/')[1];
-    if (id) {
-      window.location.href = 'ca.prairienomad.listd://listing/' + id;
-    }
-  </script>
 </head>
 <body>
   <div class="card">
-    <h1>Opening in Listd...</h1>
-    <p>View this property listing in the Listd app.</p>
+    <div class="logo">List<span>d</span></div>
+    <h2>View this property in Listd</h2>
+    <p>Tap below to open this listing in the app.</p>
     <a id="openBtn" href="#">Open in Listd</a>
   </div>
   <script>
     const path = window.location.pathname;
-    const id = path.split('/listing/')[1];
+    const parts = path.split('/listing/');
+    const id = parts.length > 1 ? parts[1] : '';
     if (id) {
       document.getElementById('openBtn').href = 'ca.prairienomad.listd://listing/' + id;
     }
