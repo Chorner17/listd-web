@@ -2,67 +2,20 @@
 <html>
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>View on Listd</title>
+  <meta name="apple-itunes-app" content="app-id=6770723351">
   <style>
     * { margin: 0; padding: 0; box-sizing: border-box; }
-    body {
-      font-family: -apple-system, sans-serif;
-      background: #F6F8F9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      height: 100vh;
-    }
-    .card {
-      text-align: center;
-      padding: 40px 32px;
-      max-width: 360px;
-    }
-    .logo {
-      font-size: 36px;
-      font-weight: 800;
-      color: #1E6B8C;
-      margin-bottom: 24px;
-    }
+    body { font-family: -apple-system, sans-serif; background: #F6F8F9; display: flex; align-items: center; justify-content: center; height: 100vh; }
+    .card { text-align: center; padding: 40px 32px; max-width: 360px; }
+    .logo { font-size: 36px; font-weight: 800; color: #1E6B8C; margin-bottom: 24px; }
     .logo span { font-weight: 300; color: #6B9E6B; }
-    .icon {
-      width: 80px;
-      height: 80px;
-      background: #1E6B8C;
-      border-radius: 20px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin: 0 auto 24px;
-    }
-    .icon svg { width: 40px; height: 40px; fill: white; }
-    h2 {
-      font-size: 20px;
-      font-weight: 700;
-      color: #1a1a2e;
-      margin-bottom: 8px;
-    }
-    p {
-      color: #666;
-      font-size: 14px;
-      line-height: 1.5;
-      margin-bottom: 28px;
-    }
-    .btn {
-      background: #1E6B8C;
-      color: white;
-      padding: 16px 36px;
-      border-radius: 12px;
-      text-decoration: none;
-      font-weight: 600;
-      font-size: 16px;
-      display: inline-block;
-    }
-    .hint {
-      margin-top: 16px;
-      font-size: 12px;
-      color: #999;
-    }
+    h2 { font-size: 20px; font-weight: 700; color: #1a1a2e; margin-bottom: 8px; }
+    p { color: #666; font-size: 14px; line-height: 1.5; margin-bottom: 28px; }
+    .btn { background: #1E6B8C; color: white; padding: 16px 36px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 16px; display: inline-block; margin-bottom: 12px; }
+    .btn-outline { border: 2px solid #1E6B8C; color: #1E6B8C; padding: 14px 36px; border-radius: 12px; text-decoration: none; font-weight: 600; font-size: 15px; display: inline-block; }
+    .hint { margin-top: 16px; font-size: 12px; color: #999; }
   </style>
 </head>
 <body>
@@ -70,28 +23,24 @@
     <div class="logo">List<span>d</span></div>
     <h2>View this property</h2>
     <p>Tap the button below or the <strong>Open</strong> banner at the top of your screen to view this listing in the Listd app.</p>
-    <a id="openBtn" class="btn" href="#">Open in Listd</a>
-    <p class="hint">Don't have Listd? Download it on the App Store.</p>
+    <a id="openBtn" class="btn" href="https://apps.apple.com/ca/app/listd/id6770723351">Open in Listd</a><br><br>
+    <a href="https://apps.apple.com/ca/app/listd/id6770723351" class="btn-outline">Download Listd — Free</a>
+    <p class="hint">Don't have Listd? Download it free on the App Store.</p>
   </div>
   <script>
-  const path = window.location.pathname;
-  const parts = path.split('/listing/');
-  const id = parts.length > 1 ? parts[1].replace(/\/$/, '') : '';
-  
-  if (id) {
-  document.getElementById('openBtn').href = '#';
-  document.getElementById('openBtn').onclick = function(e) {
-    e.preventDefault();
+    const path = window.location.pathname;
+    const parts = path.split('/listing/');
+    const id = parts.length > 1 ? parts[1].replace(/\/$/, '') : '';
     
-    // Try to open the app
-    window.location.href = 'ca.prairienomad.listd://listing/' + id;
-    
-    // If app doesn't open within 2 seconds, redirect to App Store
-    setTimeout(function() {
-      window.location.href = 'https://apps.apple.com/ca/app/listd/id6766142019';
-    }, 2000);
-  };
-}
-</script>
+    if (id) {
+      document.getElementById('openBtn').onclick = function(e) {
+        e.preventDefault();
+        window.location.href = 'ca.prairienomad.listd://listing/' + id;
+        setTimeout(function() {
+          window.location.href = 'https://apps.apple.com/ca/app/listd/id6770723351';
+        }, 2000);
+      };
+    }
+  </script>
 </body>
 </html>
